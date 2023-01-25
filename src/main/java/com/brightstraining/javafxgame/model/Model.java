@@ -23,5 +23,6 @@ public class Model {
 
     public void update(long milliseconds) {
         player.update(milliseconds);
+        enemy.update(milliseconds);
     }
 }
