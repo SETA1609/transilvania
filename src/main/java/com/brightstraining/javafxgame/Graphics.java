@@ -5,6 +5,8 @@ import com.brightstraining.javafxgame.model.Model;
 import com.brightstraining.javafxgame.model.Player;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 
 public class Graphics {
@@ -36,13 +38,16 @@ public class Graphics {
 
         // draw player
         Player player = model.getPlayer();
-        context.setFill(Color.RED);
-        context.fillOval(
+        context.setFill(Color.BLUEVIOLET);
+        context.fillRect(player.getX() - Player.WIDTH * SCALING / 2, player.getY() - Player.HEIGHT * SCALING / 2, Player.WIDTH, Player.HEIGHT);
+        //context.fillPolygon(new double[] {player.getX() - Player.WIDTH * SCALING / 2}, new double[]{player.getY() -Player.HEIGHT * SCALING / 2}, (int) Player.WIDTH);
+
+        /*context.fillOval(
                 player.getX() - Player.WIDTH * SCALING / 2,
                 player.getY() - Player.HEIGHT * SCALING / 2,
                 Player.WIDTH,
                 Player.HEIGHT
-        );
+        );*/
 
         //draw enemy
         Enemy enemy = model.getEnemy();
