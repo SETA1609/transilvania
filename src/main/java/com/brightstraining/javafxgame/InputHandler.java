@@ -18,9 +18,7 @@ public class InputHandler {
         else if (keyCode == KeyCode.RIGHT) {
             model.getPlayer().startMovingRight();
         }
-        else if(keyCode == KeyCode.SPACE) {
-            model.getPlayer().jump();
-        }
+
     }
 
     public void onKeyReleased(KeyCode keyCode) {
