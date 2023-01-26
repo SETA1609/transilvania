@@ -1,9 +1,11 @@
 package com.brightstraining.javafxgame.model;
 
-public class Food {
+import javafx.scene.image.Image;
 
-    public static final double WIDTH = 10;
-    public static final double HEIGHT = 10;
+public class Food {
+    public static Image icon = new Image(Food.class.getResource("/img/coin.png").toExternalForm());
+    public static final double WIDTH = 12;
+    public static final double HEIGHT = 12;
     private double x = ((Math.random() * (Model.WIDTH - WIDTH * 2)) + WIDTH * 2);
     private double y = ((Math.random() * (Model.HEIGHT - HEIGHT * 2)) + HEIGHT * 2);
 

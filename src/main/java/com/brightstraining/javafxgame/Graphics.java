@@ -25,8 +25,6 @@ public class Graphics {
     public static final double SCALING = 1d;
     public static final double HEIGHT = Model.HEIGHT * SCALING;
     public static final double WIDTH = Model.WIDTH * SCALING;
-    private static final String [] POISON_IMAGES = {"/img/ic_poison.png","/img/ic_ghost.png"};
-
 
     public Graphics(Canvas canvas) {
         this.canvas = canvas;
@@ -35,11 +33,6 @@ public class Graphics {
     public void draw(Model model) {
 
         GraphicsContext context = canvas.getGraphicsContext2D();
-        /**
-         // draw sky
-         context.setFill(Color.LIGHTBLUE);
-         context.fillRect(0, 0, Graphics.WIDTH, Graphics.HEIGHT);
-         */
 
         for (int i = 0; i < Model.ROWS; i++) {
             for (int j = 0; j < Model.COLUMNS; j++) {
@@ -57,35 +50,18 @@ public class Graphics {
         context.setFill(Color.BLACK); //color
         context.setFont(Font.font(25)); // Font und Große
         context.strokeText(scoreBoard.toString(), 20, 20); // Wo wird gestellt und String
+
         //draw food
         Food food = model.getFood();
-        context.setFill(Color.RED);
-        context.fillOval(food.getX() - Food.WIDTH * SCALING / 2,
-                food.getY() - Food.HEIGHT * SCALING / 2, Food.WIDTH, Food.HEIGHT);
+        context.drawImage(Food.icon, food.getX(), food.getY());
 
-        //draw poisons
-        /*List<Poison> poisons = model.getPoisons();
-        context.setFill(Color.BLACK);
-        if (ScoreBoard.score > 0) {
-            for (Poison poison : poisons) {
-
-                Image image = new Image(getClass().getResource("/img/bomb.png").toExternalForm());
-                
-                // :)
-                context.drawImage(image, poison.getX(), poison.getY());
-                //context.fillOval(poison.getX() - poison.WIDTH * SCALING / 2, poison.getY() - poison.HEIGHT * SCALING / 2, poison.WIDTH, poison.HEIGHT);
-
-
-            }
-        }*/
         //draw poisons
         List<Poison> poisons = model.getPoisons();
         context.setFill(Color.BLACK);
         if (ScoreBoard.score > 0) {
             for (Poison poison : poisons) {
-                context.drawImage(Poison.icon, poison.getX() * Model.SQUSIZE, poison.getY() * Model.SQUSIZE, Model.SQUSIZE, Model.SQUSIZE );
-            }//context.fillOval(poison.getX() - poison.WIDTH * SCALING / 2, poison.getY() - poison.HEIGHT * SCALING / 2, poison.WIDTH, poison.HEIGHT);    }}
-
+                context.drawImage(Poison.icon, poison.getX(), poison.getY());
+            }
         }
 
         // draw player

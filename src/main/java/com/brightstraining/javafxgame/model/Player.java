@@ -1,6 +1,10 @@
 package com.brightstraining.javafxgame.model;
 
+import javafx.scene.image.Image;
+
 public class Player {
+    public static final String [] PAC_IMAGES = new String [] {"/pacman/pacR.png","/pacman/pacRC.png","/pacman/pacB.png","/pacman/pacBC.png","/pacman/pacL.png","/pacman/pacLC.png","/pacman/pacT.png","/pacman/pacTC.png"};
+    public static Image iconR = new Image(Player.class.getResource("/pacman/pacR.png").toExternalForm());
 
     public static final double WIDTH = 25;
     public static final double HEIGHT = 25;
