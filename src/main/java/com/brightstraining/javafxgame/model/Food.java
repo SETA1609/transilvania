@@ -28,6 +28,22 @@ public class Food {
             x = (long) ((Math.random ()*Model.WIDTH)+WIDTH*2);
             y = (long) ((Math.random ()* Model.HEIGHT)+HEIGHT*2);
 
+        if (x < Food.WIDTH / 2) {
+            // hit left edge
+            x = Food.WIDTH - Food.WIDTH / 2;
+        }
+        else if(x > Model.WIDTH - Food.WIDTH / 2) {
+            // hit right edge
+            x = Food.WIDTH / 2;
+        }else if(y < Food.HEIGHT / 2) {
+            // hit top
+            y = GROUND_Y;
+        }
+        else if(y > GROUND_Y) {
+            // hit bottom
+            y = Food.HEIGHT / 2;
+        }
+
     }
     //Methode, die der Axis check
 
