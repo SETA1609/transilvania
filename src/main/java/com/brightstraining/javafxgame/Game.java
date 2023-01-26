@@ -67,7 +67,8 @@ public boolean isRunning;
         exit.setLayoutX (Model.WIDTH/2+120);
         exit.setLayoutY (Model.HEIGHT/2+50);
         exit.setText ("Exit");
-        exit.setOnAction (e->stage.setScene (gameOverScreen));
+        exit.setOnAction (e ->stage.close ());
+
         start.getChildren ().add (play);
         start.getChildren ().add (exit);
 
