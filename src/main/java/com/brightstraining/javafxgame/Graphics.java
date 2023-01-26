@@ -56,7 +56,7 @@ public class Graphics {
 
         //draw poisons
         List<Poison> poisons = model.getPoisons();
-        context.setFill(Color.GREENYELLOW);
+        context.setFill(Color.BLACK);
         if(ScoreBoard.score>0) {
             for (Poison poison : poisons) {
                 context.fillOval(poison.getX() - poison.WIDTH * SCALING / 2,
