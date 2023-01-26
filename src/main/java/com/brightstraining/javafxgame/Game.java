@@ -53,8 +53,6 @@ public boolean isRunning;
         titel.setY (Model.HEIGHT/2-50);
         titel.setScaleX(4);
         titel.setScaleY(4);
-
-        //titel.setsti
         start.getChildren ().add (titel);
 
         //Buttons from Startscreen
@@ -73,7 +71,27 @@ public boolean isRunning;
         start.getChildren ().add (exit);
 
         //gameOverScreen
-
+        Text gameVerloren=new Text ();
+        gameVerloren.setFont (Font.font ("Blackadder ITC"));
+        gameVerloren.setFill (Color.RED);
+        gameVerloren.setText ("Game Over \n Where did you learn to fly?");
+        gameVerloren.setX (Model.WIDTH/2-50);
+        gameVerloren.setY (Model.HEIGHT/2-50);
+        gameVerloren.setScaleX(4);
+        gameVerloren.setScaleY(4);
+        gameOver.getChildren ().add (gameVerloren);
+        Button retry=new Button ();
+        retry.setLayoutX (Model.WIDTH/2-120);
+        retry.setLayoutY (Model.HEIGHT/2+50);
+        retry.setText ("Retry");
+        retry.setOnAction (e->stage.setScene (scene));
+        Button exit2=new Button ();
+        exit2.setLayoutX (Model.WIDTH/2+120);
+        exit2.setLayoutY (Model.HEIGHT/2+50);
+        exit2.setText ("Exit");
+        exit2.setOnAction (e ->stage.close ());
+        gameOver.getChildren ().add (retry);
+        gameOver.getChildren ().add (exit2);
         // Create canvas and add to group
         Canvas canvas = new Canvas(Graphics.WIDTH,Graphics.HEIGHT);
         root.getChildren().addAll(canvas);
