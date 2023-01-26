@@ -4,8 +4,10 @@ import com.brightstraining.javafxgame.model.*;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
+
 import javafx.scene.image.ImageView;
 import javafx.scene.media.AudioClip;
+
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 
@@ -62,16 +64,28 @@ public class Graphics {
                 food.getY() - Food.HEIGHT * SCALING / 2, Food.WIDTH, Food.HEIGHT);
 
         //draw poisons
+        /*List<Poison> poisons = model.getPoisons();
+        context.setFill(Color.BLACK);
+        if (ScoreBoard.score > 0) {
+            for (Poison poison : poisons) {
+
+                Image image = new Image(getClass().getResource("/img/bomb.png").toExternalForm());
+                
+                // :)
+                context.drawImage(image, poison.getX(), poison.getY());
+                //context.fillOval(poison.getX() - poison.WIDTH * SCALING / 2, poison.getY() - poison.HEIGHT * SCALING / 2, poison.WIDTH, poison.HEIGHT);
+
+
+            }
+        }*/
+        //draw poisons
         List<Poison> poisons = model.getPoisons();
         context.setFill(Color.BLACK);
         if (ScoreBoard.score > 0) {
             for (Poison poison : poisons) {
-                Image image = new Image(getClass().getResource("/img/bomb.png").toExternalForm());
-                ImageView imageView = new ImageView(image);
-                // :)
-                context.drawImage(image, poison.getX(), poison.getY());
-                //context.fillOval(poison.getX() - poison.WIDTH * SCALING / 2, poison.getY() - poison.HEIGHT * SCALING / 2, poison.WIDTH, poison.HEIGHT);
-            }
+                context.drawImage(Poison.icon, poison.getX() * Model.SQUSIZE, poison.getY() * Model.SQUSIZE, Model.SQUSIZE, Model.SQUSIZE );
+            }//context.fillOval(poison.getX() - poison.WIDTH * SCALING / 2, poison.getY() - poison.HEIGHT * SCALING / 2, poison.WIDTH, poison.HEIGHT);    }}
+
         }
 
         // draw player
@@ -79,13 +93,5 @@ public class Graphics {
         context.setFill(Color.BLUEVIOLET);
         context.fillOval(player.getX() - Player.WIDTH * SCALING / 2,
                 player.getY() - Player.HEIGHT * SCALING / 2, Player.WIDTH, Player.HEIGHT);
-        //context.fillPolygon(new double[] {player.getX() - Player.WIDTH * SCALING / 2}, new double[]{player.getY() -Player.HEIGHT * SCALING / 2}, (int) Player.WIDTH);
-
-        /*context.fillOval(
-                player.getX() - Player.WIDTH * SCALING / 2,
-                player.getY() - Player.HEIGHT * SCALING / 2,
-                Player.WIDTH,
-                Player.HEIGHT
-        );*/
     }
 }

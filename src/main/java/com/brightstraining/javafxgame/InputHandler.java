@@ -12,6 +12,8 @@ public class InputHandler {
     }
 
     public void onKeyPressed(KeyCode keyCode) {
+
+
         if (keyCode == KeyCode.LEFT) {
             model.getPlayer().stopMovingDown();
             model.getPlayer().stopMovingUp();
@@ -26,10 +28,14 @@ public class InputHandler {
             model.getPlayer().stopMovingLeft();
             model.getPlayer().stopMovingRight();
             model.getPlayer().startMovingUp();
-        }else if(keyCode == KeyCode.DOWN) {
+        }
+        else if(keyCode == KeyCode.DOWN) {
             model.getPlayer().stopMovingLeft();
             model.getPlayer().stopMovingRight();
             model.getPlayer().startMovingDown();
+        }
+        else if(keyCode == KeyCode.M){
+            Music.toggleBackGroundMusic();
         }
     }
 

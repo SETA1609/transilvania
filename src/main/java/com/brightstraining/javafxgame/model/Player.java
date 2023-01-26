@@ -65,20 +65,21 @@ public class Player {
             speedY += milliseconds * 0.000000002;
         }*/
 
-        if (x < Player.WIDTH / 2) {
+        if (x < 0) {
             // hit left edge
             x = Model.WIDTH - Player.WIDTH / 2;
         }
-        else if(x > Model.WIDTH - Player.WIDTH / 2) {
+        else if(x > Model.WIDTH) {
             // hit right edge
             x = Player.WIDTH / 2;
-        }else if(y < Player.HEIGHT / 2) {
+        }else if(y < 0) {
             // hit top
             y = GROUND_Y;
         }
-        else if(y > GROUND_Y) {
+        else if(y > Model.HEIGHT) {
             // hit bottom
             y = Player.HEIGHT / 2;
         }
     }
+
 }

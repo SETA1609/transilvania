@@ -1,13 +1,13 @@
 package com.brightstraining.javafxgame.model;
 
+import com.brightstraining.javafxgame.MusicFlag;
 import javafx.scene.media.AudioClip;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-import static com.brightstraining.javafxgame.Music.eatFoodSound;
-import static com.brightstraining.javafxgame.Music.gameOverSound;
+import static com.brightstraining.javafxgame.Music.*;
 
 public class Model {
     public static boolean isGameOver = false;
@@ -16,9 +16,11 @@ public class Model {
 
     public static final double HEIGHT = 500;
 
+
     public static final double ROWS = 20;
     public static final double COLUMNS = ROWS;
     public static final double SQUSIZE = WIDTH/ROWS;
+
 
     private ScoreBoard scoreBoard;
 
@@ -35,13 +37,13 @@ public class Model {
         //buzzer.setVolume(0.1);
     }
 
+    public ScoreBoard getScoreBoard() {
+        return scoreBoard;
+    }
     public Food getFood() {
         return food;
     }
 
-    public ScoreBoard getScoreBoard() {
-        return scoreBoard;
-    }
 
     public Player getPlayer() {
         return player;
@@ -49,6 +51,9 @@ public class Model {
 
     public void update(long milliseconds) {
         player.update(milliseconds);
+        //if (player.isMoving()){
+
+        //}
         if(Collision.collidesWithPlayer(player,food)) {
             eatFoodSound();
             food.update();
@@ -56,6 +61,7 @@ public class Model {
             poisons.add(new Poison());
         }
         if(ScoreBoard.score >0 && Collision.collidesWithPlayer(player,poisons)){
+            backGroundMusic(MusicFlag.OFF);
             gameOverSound();
             player.stopMovingDown();
             player.stopMovingLeft();
