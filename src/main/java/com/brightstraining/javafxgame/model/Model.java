@@ -29,12 +29,9 @@ public class Model {
 
     public void update(long milliseconds) {
         player.update(milliseconds);
-        if(food.collidesWithPlayer(player)) {
+        if(Collision.collidesWithPlayer(player,food)) {
             buzzer.play();
             food.update();
         }
     }
-
-
-
 }
