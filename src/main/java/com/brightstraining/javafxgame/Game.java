@@ -49,21 +49,23 @@ public boolean isRunning;
         titel.setFont (Font.font ("Blackadder ITC"));
         titel.setFill (Color.RED);
         titel.setText ("TRANCYVANIA");
-        titel.setX (200);
-        titel.setY (200);
+        titel.setX (Model.WIDTH/2-50);
+        titel.setY (Model.HEIGHT/2-50);
+        titel.setScaleX(4);
+        titel.setScaleY(4);
 
         //titel.setsti
         start.getChildren ().add (titel);
 
         //Buttons from Startscreen
         Button play=new Button ();
-        play.setLayoutX (150);
-        play.setLayoutY (300);
+        play.setLayoutX (Model.WIDTH/2-120);
+        play.setLayoutY (Model.HEIGHT/2+50);
         play.setText ("Play");
         play.setOnAction (e->stage.setScene (scene));
         Button exit=new Button ();
-        exit.setLayoutX (300);
-        exit.setLayoutY (300);
+        exit.setLayoutX (Model.WIDTH/2+120);
+        exit.setLayoutY (Model.HEIGHT/2+50);
         exit.setText ("Exit");
         exit.setOnAction (e->stage.setScene (gameOverScreen));
         start.getChildren ().add (play);
