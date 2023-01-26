@@ -21,8 +21,10 @@ public class Timer extends AnimationTimer {
             // this is the first tick of the timer
             // save the current timestamp and wait for next tick
             timestamp = l;
-        }
-        else {
+        } else if (Model.isGameOver == true) {
+            //Prototype für gameover
+
+        } else {
             // not the first tick. we know how much time has passed
             // and can update the model accordingly.
             // Model expects milliseconds, timestamp is nanoseconds

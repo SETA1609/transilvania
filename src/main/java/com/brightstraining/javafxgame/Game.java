@@ -9,23 +9,22 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Button;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.media.AudioClip;
-import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import javafx.scene.media.Media;
+
+import static com.brightstraining.javafxgame.Music.*;
 
 public class Game extends Application {
 public boolean isRunning;
     @Override
     public void start(Stage stage) {
+        //Background Music
+        backGroundMusic(MusicFlag.ON);
 
 
 
         // Model contains the state of our game
         Model model = new Model();
-        stage.setTitle("Mein Spiel");
+        stage.setTitle("TRANCYVANIA");
         stage.setResizable(false);
 
 
@@ -65,10 +64,11 @@ public boolean isRunning;
         //gameOverScreen
 
         // Create canvas and add to group
-        Canvas canvas = new Canvas(Graphics.HEIGHT, Graphics.WIDTH);
+        Canvas canvas = new Canvas(Graphics.WIDTH,Graphics.HEIGHT);
         root.getChildren().addAll(canvas);
         stage.setScene(starScreen);
         stage.sizeToScene();
+
 
         InputHandler inputHandler = new InputHandler(model);
 

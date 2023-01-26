@@ -22,25 +22,31 @@ public class Player {
     }
 
 
-    public void startMovingLeft() {
-        if(speedX == 0){
-            speedX = -0.0003;
-        }
-    }
+    public void startMovingLeft() { speedX = ScoreBoard.score >0 ? -0.0003 - ScoreBoard.score / 100000 : -0.0003;}
+    public void startMovingRight() { speedX = ScoreBoard.score >0 ? 0.0003 + ScoreBoard.score / 100000 : 0.0003; }
+    public void startMovingDown() {this.speedY = ScoreBoard.score >0 ? 0.0003 + ScoreBoard.score / 100000 : 0.0003;}
+    public void startMovingUp() {this.speedY = ScoreBoard.score >0 ? -0.0003 - ScoreBoard.score / 100000 : -0.0003;}
     public void stopMovingLeft() {
         if (speedX < 0) {
             speedX = 0;
         }
     }
-    public void startMovingRight() {
 
-        if(speedX == 0){
-            speedX = 0.0003;
-        }
-    }
     public void stopMovingRight() {
         if (speedX > 0) {
             speedX = 0;
+        }
+    }
+
+    public void stopMovingDown() {
+        if (speedY > 0) {
+            speedY = 0;
+        }
+    }
+
+    public void stopMovingUp() {
+        if (speedY < 0) {
+            speedY = 0;
         }
     }
 
@@ -59,46 +65,21 @@ public class Player {
             speedY += milliseconds * 0.000000002;
         }*/
 
-        if (x < Player.WIDTH / 2) {
+        if (x < 0) {
             // hit left edge
             x = Model.WIDTH - Player.WIDTH / 2;
         }
-        else if(x > Model.WIDTH - Player.WIDTH / 2) {
+        else if(x > Model.WIDTH) {
             // hit right edge
             x = Player.WIDTH / 2;
-        }else if(y < Player.HEIGHT / 2) {
+        }else if(y < 0) {
             // hit top
             y = GROUND_Y;
         }
-        else if(y > GROUND_Y) {
+        else if(y > Model.HEIGHT) {
             // hit bottom
             y = Player.HEIGHT / 2;
         }
     }
-
-    public void stopMovingDown() {
-        if (speedY > 0) {
-            speedY = 0;
-        }
-    }
-
-    public void stopMovingUp() {
-        if (speedY < 0) {
-            speedY = 0;
-        }
-    }
-
-    public void startMovingDown() {
-        if(this.speedY == 0){
-            this.speedY = 0.0003;
-        }
-    }
-
-    public void startMovingUp() {
-        if (this.speedY == 0) {
-            this.speedY = -0.0003;
-        }
-    }
-
 
 }
