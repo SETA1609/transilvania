@@ -26,19 +26,19 @@ public class Graphics {
 
         GraphicsContext context = canvas.getGraphicsContext2D();
         /**
-        // draw sky
-        context.setFill(Color.LIGHTBLUE);
-        context.fillRect(0, 0, Graphics.WIDTH, Graphics.HEIGHT);
-        */
+         // draw sky
+         context.setFill(Color.LIGHTBLUE);
+         context.fillRect(0, 0, Graphics.WIDTH, Graphics.HEIGHT);
+         */
 
-        for (int i = 0; i < 20 ; i++){
-            for (int j = 0; j < 20; j++){
-                if((i+j)%2 == 0){
+        for (int i = 0; i < Model.ROWS; i++) {
+            for (int j = 0; j < Model.COLUMNS; j++) {
+                if ((i + j) % 2 == 0) {
                     context.setFill(Color.web("AAD751"));
                 } else {
                     context.setFill(Color.web("A2D149"));
                 }
-                context.fillRect(i*Model.ROWS,j*Model.COLUMNS,Model.SQUSIZE,Model.SQUSIZE);
+                context.fillRect(i * Model.SQUSIZE, j * Model.SQUSIZE, Model.SQUSIZE, Model.SQUSIZE);
             }
         }
         // draw floor
@@ -46,9 +46,9 @@ public class Graphics {
         context.fillRect(0, Graphics.HEIGHT - 5, Graphics.WIDTH, Graphics.HEIGHT);
 
         //draw food
-        Food food = model.getFood ();
-        context.setFill (Color.RED);
-        context.fillOval (food.getX ()-Food.WIDTH*SCALING/2,
+        Food food = model.getFood();
+        context.setFill(Color.RED);
+        context.fillOval(food.getX() - Food.WIDTH * SCALING / 2,
                 food.getY() - Food.HEIGHT * SCALING / 2, Food.WIDTH, Food.HEIGHT);
 
         // draw player

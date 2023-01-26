@@ -6,12 +6,12 @@ import java.util.Objects;
 
 public class Model {
 
-    public static final double WIDTH = 1000;
-    public static final double HEIGHT = 1000;
+    public static final double WIDTH = 800;
+    public static final double HEIGHT = 500;
 
-    public static final int ROWS = 20;
-    public static final int COLUMNS = ROWS;
-    public static final int SQUSIZE = (int) WIDTH/ROWS;
+    public static final double ROWS = 20;
+    public static final double COLUMNS = ROWS;
+    public static final double SQUSIZE = WIDTH/ROWS;
     private final AudioClip buzzer;
 
     private final Player player;
