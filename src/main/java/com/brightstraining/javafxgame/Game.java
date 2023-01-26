@@ -8,14 +8,16 @@ import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.media.AudioClip;
 import javafx.stage.Stage;
-import javafx.scene.media.Media;
+import static com.brightstraining.javafxgame.Music.backGroundMusic;
+import static com.brightstraining.javafxgame.Music.gameOverSound;
 
 public class Game extends Application {
 
     @Override
     public void start(Stage stage) {
+        //Background Music
+        backGroundMusic();
 
 
 
@@ -30,10 +32,11 @@ public class Game extends Application {
         Group root = new Group();
         Scene scene = new Scene(root);
 
+
+
         // Create canvas and add to group
         Canvas canvas = new Canvas(Graphics.WIDTH,Graphics.HEIGHT);
         root.getChildren().addAll(canvas);
-
         stage.setScene(scene);
         stage.sizeToScene();
 
