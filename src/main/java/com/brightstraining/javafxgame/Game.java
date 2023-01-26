@@ -9,6 +9,9 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Button;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import static com.brightstraining.javafxgame.Music.*;
@@ -32,12 +35,15 @@ public boolean isRunning;
         // Create group and scene (Window content)
         Group root = new Group();
         Scene scene = new Scene(root);
-        // StarScreen scene
+
+        // StartScreen scene
         Group start= new Group ();
-        Scene starScreen = new Scene (start,Model.HEIGHT, Model.WIDTH);
+        Scene starScreen = new Scene (start, Model.WIDTH,Model.HEIGHT);
+
         //GameOver Scene
         Group gameOver= new Group ();
-        Scene gameOverScreen = new Scene (gameOver,Model.HEIGHT, Model.WIDTH);
+        Scene gameOverScreen = new Scene (gameOver, Model.WIDTH,Model.HEIGHT);
+
         //Titel
         Text titel=new Text ();
         titel.setFont (Font.font ("Blackadder ITC"));
@@ -45,8 +51,10 @@ public boolean isRunning;
         titel.setText ("TRANCYVANIA");
         titel.setX (200);
         titel.setY (200);
+
         //titel.setsti
         start.getChildren ().add (titel);
+
         //Buttons from Startscreen
         Button play=new Button ();
         play.setLayoutX (150);

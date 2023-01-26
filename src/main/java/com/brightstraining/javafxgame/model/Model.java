@@ -44,9 +44,6 @@ public class Model {
         return food;
     }
 
-    public ScoreBoard getScoreBoard() {
-        return scoreBoard;
-    }
 
     public Player getPlayer() {
         return player;

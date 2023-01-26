@@ -3,6 +3,7 @@ package com.brightstraining.javafxgame;
 import com.brightstraining.javafxgame.model.*;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 
@@ -44,10 +45,10 @@ public class Graphics {
         }
 
         //draw ScoreBoard
-        ScoreBoard scoreBoard= model.getScoreBoard ();
-        context.setFill (Color.BLACK); //color
-        context.setFont (Font.font (25)); // Font und Große
-        context.strokeText (scoreBoard.toString (),20,20); // Wo wird gestellt und String
+        ScoreBoard scoreBoard = model.getScoreBoard();
+        context.setFill(Color.BLACK); //color
+        context.setFont(Font.font(25)); // Font und Große
+        context.strokeText(scoreBoard.toString(), 20, 20); // Wo wird gestellt und String
         //draw food
         Food food = model.getFood();
         context.setFill(Color.RED);
@@ -55,26 +56,29 @@ public class Graphics {
                 food.getY() - Food.HEIGHT * SCALING / 2, Food.WIDTH, Food.HEIGHT);
 
         //draw poisons
-        List<Poison> poisons = model.getPoisons();
+        /*List<Poison> poisons = model.getPoisons();
         context.setFill(Color.BLACK);
         if(ScoreBoard.score>0) {
             for (Poison poison : poisons) {
+
                 context.fillOval(poison.getX() - poison.WIDTH * SCALING / 2,
                         poison.getY() - poison.HEIGHT * SCALING / 2, poison.WIDTH, poison.HEIGHT);
             }
+        }*/
+        //draw poisons
+        List<Poison> poisons = model.getPoisons();
+        context.setFill(Color.BLACK);
+        if (ScoreBoard.score > 0) {
+            for (Poison poison : poisons) {
+                context.drawImage(Poison.icon, poison.getX() * Model.SQUSIZE, poison.getY() * Model.SQUSIZE, Model.SQUSIZE, Model.SQUSIZE );
+            }//context.fillOval(poison.getX() - poison.WIDTH * SCALING / 2, poison.getY() - poison.HEIGHT * SCALING / 2, poison.WIDTH, poison.HEIGHT);    }}
+
         }
+
         // draw player
         Player player = model.getPlayer();
         context.setFill(Color.BLUEVIOLET);
         context.fillOval(player.getX() - Player.WIDTH * SCALING / 2,
                 player.getY() - Player.HEIGHT * SCALING / 2, Player.WIDTH, Player.HEIGHT);
-        //context.fillPolygon(new double[] {player.getX() - Player.WIDTH * SCALING / 2}, new double[]{player.getY() -Player.HEIGHT * SCALING / 2}, (int) Player.WIDTH);
-
-        /*context.fillOval(
-                player.getX() - Player.WIDTH * SCALING / 2,
-                player.getY() - Player.HEIGHT * SCALING / 2,
-                Player.WIDTH,
-                Player.HEIGHT
-        );*/
     }
 }
