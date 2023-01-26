@@ -9,8 +9,8 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import static com.brightstraining.javafxgame.Music.backGroundMusic;
-import static com.brightstraining.javafxgame.Music.gameOverSound;
+
+import static com.brightstraining.javafxgame.Music.*;
 
 public class Game extends Application {
 
