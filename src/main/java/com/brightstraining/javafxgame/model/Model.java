@@ -10,13 +10,21 @@ import static com.brightstraining.javafxgame.Music.gameOverSound;
 public class Model {
 
     public static final double WIDTH = 800;
-    public static final double HEIGHT = 600;
+
+    public static final double HEIGHT = 500;
+
+    public static final double ROWS = 20;
+    public static final double COLUMNS = ROWS;
+    public static final double SQUSIZE = WIDTH/ROWS;
+    private final AudioClip buzzer;
+
   
     private ScoreBoard scoreBoard;
     public ScoreBoard getScoreBoard() {
         return scoreBoard;
     }
    
+
 
     private final Player player;
     private final Food food;

@@ -40,6 +40,7 @@ public class Game extends Application {
         stage.setScene(scene);
         stage.sizeToScene();
 
+
         InputHandler inputHandler = new InputHandler(model);
 
         scene.setOnKeyPressed(new EventHandler<KeyEvent>() {

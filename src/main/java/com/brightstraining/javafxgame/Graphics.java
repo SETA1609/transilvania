@@ -27,11 +27,22 @@ public class Graphics {
     public void draw(Model model) {
 
         GraphicsContext context = canvas.getGraphicsContext2D();
+        /**
+         // draw sky
+         context.setFill(Color.LIGHTBLUE);
+         context.fillRect(0, 0, Graphics.WIDTH, Graphics.HEIGHT);
+         */
 
-        // draw sky
-        context.setFill(Color.LIGHTBLUE);
-        context.fillRect(0, 0, Graphics.WIDTH, Graphics.HEIGHT);
-
+        for (int i = 0; i < Model.ROWS; i++) {
+            for (int j = 0; j < Model.COLUMNS; j++) {
+                if ((i + j) % 2 == 0) {
+                    context.setFill(Color.web("AAD751"));
+                } else {
+                    context.setFill(Color.web("A2D149"));
+                }
+                context.fillRect(i * Model.SQUSIZE, j * Model.SQUSIZE, Model.SQUSIZE, Model.SQUSIZE);
+            }
+        }
         // draw floor
         context.setFill(Color.GRAY);
         context.fillRect(0, Graphics.HEIGHT - 5, Graphics.WIDTH, Graphics.HEIGHT);
@@ -41,9 +52,9 @@ public class Graphics {
         context.setFont (Font.font (25)); // Font und Große
         context.strokeText (scoreBoard.toString (),20,20); // Wo wird gestellt und String
         //draw food
-        Food food = model.getFood ();
-        context.setFill (Color.RED);
-        context.fillOval (food.getX ()-Food.WIDTH*SCALING/2,
+        Food food = model.getFood();
+        context.setFill(Color.RED);
+        context.fillOval(food.getX() - Food.WIDTH * SCALING / 2,
                 food.getY() - Food.HEIGHT * SCALING / 2, Food.WIDTH, Food.HEIGHT);
 
         // draw player
