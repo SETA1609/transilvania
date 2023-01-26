@@ -8,17 +8,16 @@ import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.media.AudioClip;
-import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import javafx.scene.media.Media;
+import static com.brightstraining.javafxgame.Music.backGroundMusic;
+import static com.brightstraining.javafxgame.Music.gameOverSound;
 
 public class Game extends Application {
 
     @Override
     public void start(Stage stage) {
+        //Background Music
+        backGroundMusic();
 
 
 
