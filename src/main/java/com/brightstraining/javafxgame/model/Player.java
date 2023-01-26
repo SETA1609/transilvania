@@ -23,9 +23,9 @@ public class Player {
 
 
     public void startMovingLeft() {
-        if(speedX == 0){
+
             speedX = -0.0003;
-        }
+
     }
     public void stopMovingLeft() {
         if (speedX < 0) {
@@ -34,9 +34,9 @@ public class Player {
     }
     public void startMovingRight() {
 
-        if(speedX == 0){
+
             speedX = 0.0003;
-        }
+
     }
     public void stopMovingRight() {
         if (speedX > 0) {
@@ -89,14 +89,14 @@ public class Player {
     }
 
     public void startMovingDown() {
-        if(this.speedY == 0){
+
             this.speedY = 0.0003;
-        }
+
     }
 
     public void startMovingUp() {
-        if (this.speedY == 0) {
+
             this.speedY = -0.0003;
-        }
+
     }
 }
