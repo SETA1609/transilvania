@@ -9,9 +9,8 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-
-
 import static com.brightstraining.javafxgame.Music.backGroundMusic;
+import static com.brightstraining.javafxgame.Music.gameOverSound;
 
 public class Game extends Application {
 
@@ -19,6 +18,7 @@ public class Game extends Application {
     public void start(Stage stage) {
         //Background Music
         backGroundMusic();
+
 
 
         // Model contains the state of our game

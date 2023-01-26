@@ -5,6 +5,7 @@ import javafx.scene.media.AudioClip;
 import java.util.Objects;
 
 import static com.brightstraining.javafxgame.Music.eatFoodSound;
+import static com.brightstraining.javafxgame.Music.gameOverSound;
 
 public class Model {
 
@@ -35,6 +36,7 @@ public class Model {
             food.update();
         }
     }
+
 
 
 
