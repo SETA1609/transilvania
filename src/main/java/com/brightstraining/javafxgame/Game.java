@@ -9,6 +9,9 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.media.AudioClip;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.scene.media.Media;
 
@@ -30,10 +33,11 @@ public class Game extends Application {
         Group root = new Group();
         Scene scene = new Scene(root);
 
+
+
         // Create canvas and add to group
         Canvas canvas = new Canvas(Graphics.HEIGHT, Graphics.WIDTH);
         root.getChildren().addAll(canvas);
-
         stage.setScene(scene);
         stage.sizeToScene();
 
