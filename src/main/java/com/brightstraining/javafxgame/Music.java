@@ -16,10 +16,10 @@ public class Music {
     public static void toggleBackGroundMusic(){
         if(hasVolume) {
             backGroundMusic(MusicFlag.OFF);
-
+            hasVolume = false;
         }else {
             backGroundMusic(MusicFlag.ON);
-
+            hasVolume = true;
         }
     }
     public static void backGroundMusic(MusicFlag musicFlag){
@@ -28,9 +28,11 @@ public class Music {
         backGroundMusic.setCycleCount(AudioClip.INDEFINITE);
         if(musicFlag == MusicFlag.ON) {
             backGroundMusic.play();
+            hasVolume = true;
         }
         if(musicFlag == MusicFlag.OFF){
             backGroundMusic.stop();
+            hasVolume = false;
         }
     }
 
