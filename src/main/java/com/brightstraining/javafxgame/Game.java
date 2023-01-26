@@ -23,7 +23,7 @@ public class Game extends Application {
 
         // Model contains the state of our game
         Model model = new Model();
-        stage.setTitle("Mein Spiel");
+        stage.setTitle("TRANCYVANIA");
         stage.setResizable(false);
 
 
