@@ -17,7 +17,7 @@ public class Poison {
 
     public void update() {
 
-        x = (long) ((Math.random() * (Model.WIDTH-15)) + 15);
-        y = (long) ((Math.random() * (Model.HEIGHT-15)) + 15);
+        x = (long) ((Math.random() * (Model.WIDTH-Food.WIDTH*2)) + WIDTH*2);
+        y = (long) ((Math.random() * (Model.HEIGHT-HEIGHT*2)) + HEIGHT*2);
     }
 }
