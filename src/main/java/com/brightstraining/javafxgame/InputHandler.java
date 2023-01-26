@@ -12,6 +12,8 @@ public class InputHandler {
     }
 
     public void onKeyPressed(KeyCode keyCode) {
+
+
         if (keyCode == KeyCode.LEFT) {
             model.getPlayer().stopMovingDown();
             model.getPlayer().stopMovingUp();
