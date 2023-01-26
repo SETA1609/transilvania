@@ -85,8 +85,13 @@ public boolean isRunning;
         retry.setLayoutY (Model.HEIGHT/2+50);
         retry.setText ("Retry");
         retry.setOnAction (e->stage.setScene (scene));
+        Button exit2=new Button ();
+        exit2.setLayoutX (Model.WIDTH/2+120);
+        exit2.setLayoutY (Model.HEIGHT/2+50);
+        exit2.setText ("Exit");
+        exit2.setOnAction (e ->stage.close ());
         gameOver.getChildren ().add (retry);
-        gameOver.getChildren ().add (exit);
+        gameOver.getChildren ().add (exit2);
         // Create canvas and add to group
         Canvas canvas = new Canvas(Graphics.WIDTH,Graphics.HEIGHT);
         root.getChildren().addAll(canvas);
