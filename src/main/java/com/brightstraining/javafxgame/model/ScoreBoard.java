@@ -1,9 +1,9 @@
 package com.brightstraining.javafxgame.model;
 
 public class ScoreBoard {
-    public int score=0;
+    public static double score=0;
     public String scoreTitle="Score: ";
-    public int getScore() {
+    public double getScore() {
         return score;
     }
 
@@ -11,12 +11,12 @@ public class ScoreBoard {
         this.score = score;
     }
 
-    public int update(){
+    public double update(){
         return score++;
     }
 
     @Override
     public String toString() {
-        return "Score:" + score ;
+        return "Score:" + (int)score ;
     }
 }
