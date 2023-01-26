@@ -9,8 +9,8 @@ import static com.brightstraining.javafxgame.Music.gameOverSound;
 
 public class Model {
 
-    public static final double WIDTH = 500;
-    public static final double HEIGHT = 500;
+    public static final double WIDTH = 800;
+    public static final double HEIGHT = 600;
   
     private ScoreBoard scoreBoard;
     public ScoreBoard getScoreBoard() {
