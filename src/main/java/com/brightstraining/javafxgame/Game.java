@@ -6,6 +6,7 @@ import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
+import javafx.scene.control.Button;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.media.AudioClip;
@@ -16,7 +17,7 @@ import javafx.stage.Stage;
 import javafx.scene.media.Media;
 
 public class Game extends Application {
-
+public boolean isRunning;
     @Override
     public void start(Stage stage) {
 
@@ -32,18 +33,27 @@ public class Game extends Application {
         // Create group and scene (Window content)
         Group root = new Group();
         Scene scene = new Scene(root);
-
-
+        // StarScreen scene
+        Group start= new Group ();
+        Scene starScreen = new Scene (start,Model.HEIGHT, Model.WIDTH);
+        //Buttons from Startscreen
+        Button play=new Button ();
+        play.setLayoutX (100);
+        play.setLayoutY (80);
+        play.setText ("Play");
+        play.setOnAction (e->stage.setScene (scene));
+        start.getChildren ().add (play);
 
         // Create canvas and add to group
         Canvas canvas = new Canvas(Graphics.HEIGHT, Graphics.WIDTH);
         root.getChildren().addAll(canvas);
-        stage.setScene(scene);
+        stage.setScene(starScreen);
         stage.sizeToScene();
 
         InputHandler inputHandler = new InputHandler(model);
 
         scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
+
             @Override
             public void handle(KeyEvent keyEvent) {
                 inputHandler.onKeyPressed(keyEvent.getCode());

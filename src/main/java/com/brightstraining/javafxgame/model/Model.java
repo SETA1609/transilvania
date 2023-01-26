@@ -10,15 +10,16 @@ public class Model {
     public static final double HEIGHT = 500;
     private final AudioClip buzzer;
 
-    public ScoreBoard getScoreBoard() {
-        return scoreBoard;
-    }
+
 
     private ScoreBoard scoreBoard;
 
     private final Player player;
     private final Food food;
 
+    public ScoreBoard getScoreBoard() {
+        return scoreBoard;
+    }
     public Food getFood() {
         return food;
     }
@@ -36,6 +37,9 @@ public class Model {
 
     public void update(long milliseconds) {
         player.update(milliseconds);
+        //if (player.isMoving()){
+
+        //}
         if(Collision.collidesWithPlayer(player,food)) {
             buzzer.play();
             food.update();

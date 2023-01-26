@@ -1,9 +1,6 @@
 package com.brightstraining.javafxgame;
 
-import com.brightstraining.javafxgame.model.Food;
-import com.brightstraining.javafxgame.model.Model;
-import com.brightstraining.javafxgame.model.Player;
-import com.brightstraining.javafxgame.model.ScoreBoard;
+import com.brightstraining.javafxgame.model.*;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
