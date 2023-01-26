@@ -2,31 +2,25 @@ package com.brightstraining.javafxgame.model;
 
 public class Player {
 
-    public static final long WIDTH = 25;
-    public static final long HEIGHT = 25;
-    public static final long GROUND_Y = Model.HEIGHT - Player.HEIGHT / 2;
+    public static final double WIDTH = 25;
+    public static final double HEIGHT = 25;
+    public static final double GROUND_Y = Model.HEIGHT - Player.HEIGHT / 2;
 
     // coordinates of the center
-    private long x = Model.WIDTH / 2 - Player.WIDTH / 2;
-    private long y = Model.HEIGHT / 2 - Player.HEIGHT / 2;
+    private double x = Model.WIDTH / 2 - Player.WIDTH / 2;
+    private double y = Model.HEIGHT / 2 - Player.HEIGHT / 2;
 
     private double speedX = 0;
     private double speedY = 0;
 
-    public long getX() {
+    public double getX() {
         return x;
     }
 
-    public long getY() {
+    public double getY() {
         return y;
     }
 
-    public void jump() {
-        // can only jump when standing on the ground
-        if (y == GROUND_Y) {
-            speedY = -0.0008;
-        }
-    }
 
     public void startMovingLeft() {
         if(speedX == 0){

@@ -2,13 +2,16 @@ package com.brightstraining.javafxgame.model;
 
 import javafx.scene.media.AudioClip;
 
+import java.util.Objects;
+
 public class Model {
 
-    public static final int WIDTH = 500;
-    public static final int HEIGHT = 500;
+    public static final double WIDTH = 500;
+    public static final double HEIGHT = 500;
+    private final AudioClip buzzer;
 
-    private Player player;
-    private Food food;
+    private final Player player;
+    private final Food food;
 
     public Food getFood() {
         return food;
@@ -17,6 +20,7 @@ public class Model {
     public Model() {
         this.player = new Player();
         this.food = new Food ();
+        buzzer = new AudioClip(Objects.requireNonNull(getClass().getResource("/audio/gameboy.mp3")).toExternalForm());
     }
 
     public Player getPlayer() {
@@ -26,9 +30,8 @@ public class Model {
     public void update(long milliseconds) {
         player.update(milliseconds);
         if(food.collidesWithPlayer(player)) {
-            AudioClip buzzer = new AudioClip(getClass().getResource("/audio/gameboy.mp3").toExternalForm());
             buzzer.play();
-            food.update(this.player);
+            food.update();
         }
     }
 
