@@ -8,16 +8,20 @@ import static javafx.util.Duration.INDEFINITE;
 
 public class Music {
 
+    static AudioClip backGroundMusic = new AudioClip(Music.class.getResource("/audio/Trancyvania.mp3").toExternalForm());
+    static AudioClip eatFood = new AudioClip(Objects.requireNonNull(Music.class.getResource("/audio/gameboy.mp3")).toExternalForm());
+    static AudioClip gameOverDoh = new AudioClip(Objects.requireNonNull(Music.class.getResource("/audio/Doh.mp3")).toExternalForm());
+    static AudioClip gameOverMorning = new AudioClip(Objects.requireNonNull(Music.class.getResource("/audio/GoodMorning.mp3")).toExternalForm());
+
     public static void backGroundMusic(MusicFlag musicFlag){
-        boolean play = true;
-        AudioClip buzzer = new AudioClip(Music.class.getResource("/audio/Trancyvania.mp3").toExternalForm());
-        buzzer.setVolume(0.2);
-        buzzer.setCycleCount(AudioClip.INDEFINITE);
+
+        backGroundMusic.setVolume(0.2);
+        backGroundMusic.setCycleCount(AudioClip.INDEFINITE);
         if(musicFlag == MusicFlag.ON) {
-            buzzer.play();
+            backGroundMusic.play();
         }
         if(musicFlag == MusicFlag.OFF){
-            buzzer.stop();
+            backGroundMusic.stop();
         }
     }
     public static void backGroundMusicStop(){
@@ -25,14 +29,17 @@ public class Music {
     }
 
     public static void eatFoodSound(){
-        AudioClip buzzer = new AudioClip(Objects.requireNonNull(Music.class.getResource("/audio/gameboy.mp3")).toExternalForm());
-        buzzer.setVolume(0.2);
-        buzzer.play();
+
+        eatFood.setVolume(0.2);
+        eatFood.play();
     }
 
     public static void gameOverSound(){
-        AudioClip buzzer = new AudioClip(Objects.requireNonNull(Music.class.getResource("/audio/Doh.mp3")).toExternalForm());
-        buzzer.setVolume(0.15);
-        buzzer.play();
+
+        gameOverDoh.setVolume(0.15);
+        gameOverDoh.play();
+
+        gameOverMorning.setVolume(0.15);
+        gameOverMorning.play();
     }
 }
