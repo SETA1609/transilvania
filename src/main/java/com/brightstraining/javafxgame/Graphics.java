@@ -68,7 +68,7 @@ public class Graphics {
             for (Poison poison : poisons) {
                 Image image = new Image(getClass().getResource("/img/bomb.png").toExternalForm());
                 ImageView imageView = new ImageView(image);
-
+                // :)
                 context.drawImage(image, poison.getX(), poison.getY());
                 //context.fillOval(poison.getX() - poison.WIDTH * SCALING / 2, poison.getY() - poison.HEIGHT * SCALING / 2, poison.WIDTH, poison.HEIGHT);
             }
