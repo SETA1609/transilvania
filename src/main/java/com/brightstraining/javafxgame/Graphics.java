@@ -3,9 +3,14 @@ package com.brightstraining.javafxgame;
 import com.brightstraining.javafxgame.model.*;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.media.AudioClip;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 
+import java.io.FileInputStream;
+import java.io.InputStream;
 import java.util.List;
 
 public class Graphics {
@@ -18,6 +23,8 @@ public class Graphics {
     public static final double SCALING = 1d;
     public static final double HEIGHT = Model.HEIGHT * SCALING;
     public static final double WIDTH = Model.WIDTH * SCALING;
+    private static final String [] POISON_IMAGES = {"/img/ic_poison.png","/img/ic_ghost.png"};
+
 
     public Graphics(Canvas canvas) {
         this.canvas = canvas;
@@ -44,10 +51,10 @@ public class Graphics {
         }
 
         //draw ScoreBoard
-        ScoreBoard scoreBoard= model.getScoreBoard ();
-        context.setFill (Color.BLACK); //color
-        context.setFont (Font.font (25)); // Font und Große
-        context.strokeText (scoreBoard.toString (),20,20); // Wo wird gestellt und String
+        ScoreBoard scoreBoard = model.getScoreBoard();
+        context.setFill(Color.BLACK); //color
+        context.setFont(Font.font(25)); // Font und Große
+        context.strokeText(scoreBoard.toString(), 20, 20); // Wo wird gestellt und String
         //draw food
         Food food = model.getFood();
         context.setFill(Color.RED);
@@ -57,12 +64,14 @@ public class Graphics {
         //draw poisons
         List<Poison> poisons = model.getPoisons();
         context.setFill(Color.BLACK);
-        if(ScoreBoard.score>0) {
+        if (ScoreBoard.score > 0) {
             for (Poison poison : poisons) {
-                context.fillOval(poison.getX() - poison.WIDTH * SCALING / 2,
-                        poison.getY() - poison.HEIGHT * SCALING / 2, poison.WIDTH, poison.HEIGHT);
+                Image image = new Image(getClass().getResource("/img/ic_poison.png").toExternalForm());
+                context.drawImage(image, poison.getX()*Model.SQUSIZE, poison.getY()*Model.SQUSIZE, Model.SQUSIZE, Model.SQUSIZE);
+                //context.fillOval(poison.getX() - poison.WIDTH * SCALING / 2, poison.getY() - poison.HEIGHT * SCALING / 2, poison.WIDTH, poison.HEIGHT);
             }
         }
+
         // draw player
         Player player = model.getPlayer();
         context.setFill(Color.BLUEVIOLET);
