@@ -25,11 +25,22 @@ public class Graphics {
     public void draw(Model model) {
 
         GraphicsContext context = canvas.getGraphicsContext2D();
-
+        /**
         // draw sky
         context.setFill(Color.LIGHTBLUE);
         context.fillRect(0, 0, Graphics.WIDTH, Graphics.HEIGHT);
+        */
 
+        for (int i = 0; i < 20 ; i++){
+            for (int j = 0; j < 20; j++){
+                if((i+j)%2 == 0){
+                    context.setFill(Color.web("AAD751"));
+                } else {
+                    context.setFill(Color.web("A2D149"));
+                }
+                context.fillRect(i*25,j*25,25,25);
+            }
+        }
         // draw floor
         context.setFill(Color.GRAY);
         context.fillRect(0, Graphics.HEIGHT - 5, Graphics.WIDTH, Graphics.HEIGHT);
