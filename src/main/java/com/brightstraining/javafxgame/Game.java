@@ -36,13 +36,33 @@ public boolean isRunning;
         // StarScreen scene
         Group start= new Group ();
         Scene starScreen = new Scene (start,Model.HEIGHT, Model.WIDTH);
+        //GameOver Scene
+        Group gameOver= new Group ();
+        Scene gameOverScreen = new Scene (gameOver,Model.HEIGHT, Model.WIDTH);
+        //Titel
+        Text titel=new Text ();
+        titel.setFont (Font.font ("Blackadder ITC"));
+        titel.setFill (Color.RED);
+        titel.setText ("TRANCYVANIA");
+        titel.setX (200);
+        titel.setY (200);
+        //titel.setsti
+        start.getChildren ().add (titel);
         //Buttons from Startscreen
         Button play=new Button ();
-        play.setLayoutX (100);
-        play.setLayoutY (80);
+        play.setLayoutX (150);
+        play.setLayoutY (300);
         play.setText ("Play");
         play.setOnAction (e->stage.setScene (scene));
+        Button exit=new Button ();
+        exit.setLayoutX (300);
+        exit.setLayoutY (300);
+        exit.setText ("Exit");
+        exit.setOnAction (e->stage.setScene (gameOverScreen));
         start.getChildren ().add (play);
+        start.getChildren ().add (exit);
+
+        //gameOverScreen
 
         // Create canvas and add to group
         Canvas canvas = new Canvas(Graphics.HEIGHT, Graphics.WIDTH);
