@@ -9,7 +9,7 @@ import static javafx.util.Duration.INDEFINITE;
 public class Music {
 
     public static void backGroundMusic(){
-        AudioClip buzzer = new AudioClip(Music.class.getResource("/audio/Time.mp3").toExternalForm());
+        AudioClip buzzer = new AudioClip(Music.class.getResource("/audio/Trancyvania.mp3").toExternalForm());
         buzzer.setVolume(0.2);
         buzzer.setCycleCount(AudioClip.INDEFINITE);
         buzzer.play();
