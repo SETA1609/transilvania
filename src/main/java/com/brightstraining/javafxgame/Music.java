@@ -4,15 +4,24 @@ import javafx.scene.media.AudioClip;
 
 import java.util.Objects;
 
-import static javafx.util.Duration.INDEFINITE;
-
 public class Music {
 
     static AudioClip backGroundMusic = new AudioClip(Music.class.getResource("/audio/Trancyvania.mp3").toExternalForm());
     static AudioClip eatFood = new AudioClip(Objects.requireNonNull(Music.class.getResource("/audio/gameboy.mp3")).toExternalForm());
-    static AudioClip gameOverDoh = new AudioClip(Objects.requireNonNull(Music.class.getResource("/audio/Doh.mp3")).toExternalForm());
-    static AudioClip gameOverMorning = new AudioClip(Objects.requireNonNull(Music.class.getResource("/audio/GoodMorning.mp3")).toExternalForm());
+    static AudioClip gameOverDoh = new AudioClip(Objects.requireNonNull(Music.class.getResource("/audio/looserGewitter.mp3")).toExternalForm());
+    static AudioClip gameOverMorning = new AudioClip(Objects.requireNonNull(Music.class.getResource("/audio/Tragedy.mp3")).toExternalForm());
 
+    static boolean hasVolume;
+
+    public static void toggleBackGroundMusic(){
+        if(hasVolume) {
+            backGroundMusic(MusicFlag.OFF);
+
+        }else {
+            backGroundMusic(MusicFlag.ON);
+
+        }
+    }
     public static void backGroundMusic(MusicFlag musicFlag){
 
         backGroundMusic.setVolume(0.2);
@@ -23,9 +32,6 @@ public class Music {
         if(musicFlag == MusicFlag.OFF){
             backGroundMusic.stop();
         }
-    }
-    public static void backGroundMusicStop(){
-
     }
 
     public static void eatFoodSound(){
