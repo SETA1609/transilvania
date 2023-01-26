@@ -8,11 +8,20 @@ import static javafx.util.Duration.INDEFINITE;
 
 public class Music {
 
-    public static void backGroundMusic(){
+    public static void backGroundMusic(MusicFlag musicFlag){
+        boolean play = true;
         AudioClip buzzer = new AudioClip(Music.class.getResource("/audio/Trancyvania.mp3").toExternalForm());
         buzzer.setVolume(0.2);
         buzzer.setCycleCount(AudioClip.INDEFINITE);
-        buzzer.play();
+        if(musicFlag == MusicFlag.ON) {
+            buzzer.play();
+        }
+        if(musicFlag == MusicFlag.OFF){
+            buzzer.stop();
+        }
+    }
+    public static void backGroundMusicStop(){
+
     }
 
     public static void eatFoodSound(){

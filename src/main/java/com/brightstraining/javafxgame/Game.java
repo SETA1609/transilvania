@@ -17,7 +17,7 @@ public class Game extends Application {
     @Override
     public void start(Stage stage) {
         //Background Music
-        backGroundMusic();
+        backGroundMusic(MusicFlag.ON);
 
 
 
