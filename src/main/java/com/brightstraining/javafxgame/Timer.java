@@ -5,7 +5,7 @@ import javafx.animation.AnimationTimer;
 
 public class Timer extends AnimationTimer {
 
-    private long timestamp;
+    private static long timestamp;
     private Model model;
     private Graphics graphics;
 
@@ -33,5 +33,9 @@ public class Timer extends AnimationTimer {
         }
 
         graphics.draw(model);
+    }
+
+    public static long getTimestamp() {
+        return timestamp;
     }
 }

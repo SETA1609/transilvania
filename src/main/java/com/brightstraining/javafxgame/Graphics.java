@@ -66,8 +66,6 @@ public class Graphics {
 
         // draw player
         Player player = model.getPlayer();
-        context.setFill(Color.BLUEVIOLET);
-        context.fillOval(player.getX() - Player.WIDTH * SCALING / 2,
-                player.getY() - Player.HEIGHT * SCALING / 2, Player.WIDTH, Player.HEIGHT);
+        context.drawImage(Player.icon, player.getX(), player.getY());
     }
 }
