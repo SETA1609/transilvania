@@ -80,7 +80,13 @@ public boolean isRunning;
         gameVerloren.setScaleX(4);
         gameVerloren.setScaleY(4);
         gameOver.getChildren ().add (gameVerloren);
-
+        Button retry=new Button ();
+        retry.setLayoutX (Model.WIDTH/2-120);
+        retry.setLayoutY (Model.HEIGHT/2+50);
+        retry.setText ("Retry");
+        retry.setOnAction (e->stage.setScene (scene));
+        gameOver.getChildren ().add (retry);
+        gameOver.getChildren ().add (exit);
         // Create canvas and add to group
         Canvas canvas = new Canvas(Graphics.WIDTH,Graphics.HEIGHT);
         root.getChildren().addAll(canvas);
