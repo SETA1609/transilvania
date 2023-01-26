@@ -38,7 +38,7 @@ public class Graphics {
                 } else {
                     context.setFill(Color.web("A2D149"));
                 }
-                context.fillRect(i*25,j*25,25,25);
+                context.fillRect(i*Model.ROWS,j*Model.COLUMNS,Model.SQUSIZE,Model.SQUSIZE);
             }
         }
         // draw floor
