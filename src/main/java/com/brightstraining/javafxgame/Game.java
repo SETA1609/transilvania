@@ -17,8 +17,7 @@ public class Game extends Application {
     @Override
     public void start(Stage stage) {
 
-        AudioClip buzzer = new AudioClip(getClass().getResource("/audio/gameboy.mp3").toExternalForm());
-        buzzer.play();
+
 
         // Model contains the state of our game
         Model model = new Model();

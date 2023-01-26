@@ -1,5 +1,7 @@
 package com.brightstraining.javafxgame.model;
 
+import javafx.scene.media.AudioClip;
+
 public class Model {
 
     public static final int WIDTH = 500;
@@ -23,7 +25,11 @@ public class Model {
 
     public void update(long milliseconds) {
         player.update(milliseconds);
-        food.update(this.player);
+        if(food.collidesWithPlayer(player)) {
+            AudioClip buzzer = new AudioClip(getClass().getResource("/audio/gameboy.mp3").toExternalForm());
+            buzzer.play();
+            food.update(this.player);
+        }
     }
 
 

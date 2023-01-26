@@ -24,10 +24,10 @@ public class Food {
         this.y = y;
     }
     public void update(Player player) {
-        if (collidesWithPlayer(player)){
+
             x = (long) ((Math.random ()*Model.WIDTH)+WIDTH*2);
             y = (long) ((Math.random ()* Model.HEIGHT)+HEIGHT*2);
-        }
+
     }
     //Methode, die der Axis check
 
