@@ -3,9 +3,11 @@ package com.brightstraining.javafxgame;
 import com.brightstraining.javafxgame.model.Food;
 import com.brightstraining.javafxgame.model.Model;
 import com.brightstraining.javafxgame.model.Player;
+import com.brightstraining.javafxgame.model.ScoreBoard;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 
 public class Graphics {
 
@@ -33,7 +35,11 @@ public class Graphics {
         // draw floor
         context.setFill(Color.GRAY);
         context.fillRect(0, Graphics.HEIGHT - 5, Graphics.WIDTH, Graphics.HEIGHT);
-
+        //draw ScoreBoard
+        ScoreBoard scoreBoard= model.getScoreBoard ();
+        context.setFill (Color.BLACK); //color
+        context.setFont (Font.font (25)); // Font und Große
+        context.strokeText (scoreBoard.toString (),20,20); // Wo wird gestellt und String
         //draw food
         Food food = model.getFood ();
         context.setFill (Color.RED);

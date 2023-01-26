@@ -32,10 +32,11 @@ public class Game extends Application {
         Group root = new Group();
         Scene scene = new Scene(root);
 
+
+
         // Create canvas and add to group
         Canvas canvas = new Canvas(Graphics.HEIGHT, Graphics.WIDTH);
         root.getChildren().addAll(canvas);
-
         stage.setScene(scene);
         stage.sizeToScene();
 
