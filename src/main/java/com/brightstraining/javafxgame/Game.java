@@ -53,8 +53,6 @@ public boolean isRunning;
         titel.setY (Model.HEIGHT/2-50);
         titel.setScaleX(4);
         titel.setScaleY(4);
-
-        //titel.setsti
         start.getChildren ().add (titel);
 
         //Buttons from Startscreen
@@ -73,6 +71,15 @@ public boolean isRunning;
         start.getChildren ().add (exit);
 
         //gameOverScreen
+        Text gameVerloren=new Text ();
+        gameVerloren.setFont (Font.font ("Blackadder ITC"));
+        gameVerloren.setFill (Color.RED);
+        gameVerloren.setText ("Game Over \n Where did you learn to fly?");
+        gameVerloren.setX (Model.WIDTH/2-50);
+        gameVerloren.setY (Model.HEIGHT/2-50);
+        gameVerloren.setScaleX(4);
+        gameVerloren.setScaleY(4);
+        gameOver.getChildren ().add (gameVerloren);
 
         // Create canvas and add to group
         Canvas canvas = new Canvas(Graphics.WIDTH,Graphics.HEIGHT);
