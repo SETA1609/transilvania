@@ -26,6 +26,11 @@ public class Food {
 
     private void generateSpawn(){
         this.x = Math.random() * (Model.WIDTH-Food.WIDTH*3) + WIDTH * 2;
+        //conflict example
+        //conflict example
+        //conflict example
+        //conflict example
+
         this.y =  Math.random() * (Model.HEIGHT-Food.HEIGHT*3) + HEIGHT * 2;
         if(Model.getCollision().collidesWithAnythingButFood(x,y)){
             generateSpawn();

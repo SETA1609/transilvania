@@ -25,7 +25,13 @@ public class Model {
     public Model() {
         this.player = new Player();
         this.food = new Food ();
+ /*
 
+
+
+
+ conflict example
+  */
         this.scoreBoard=new ScoreBoard ();
     }
 
