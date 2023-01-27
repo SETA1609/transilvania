@@ -9,8 +9,8 @@ public class Music {
 
     static AudioClip backGroundMusic = new AudioClip(Music.class.getResource("/audio/Trancyvania.mp3").toExternalForm());
     static AudioClip eatFood = new AudioClip(Objects.requireNonNull(Music.class.getResource("/audio/gameboy.mp3")).toExternalForm());
-    static AudioClip gameOverMusic = new AudioClip(Objects.requireNonNull(Music.class.getResource("/audio/looserGewitter.mp3")).toExternalForm());
-    static AudioClip gameOverMorning = new AudioClip(Objects.requireNonNull(Music.class.getResource("/audio/Tragedy.mp3")).toExternalForm());
+    static AudioClip gameOverThunder = new AudioClip(Objects.requireNonNull(Music.class.getResource("/audio/looserGewitter.mp3")).toExternalForm());
+    static AudioClip gameOverMusic = new AudioClip(Objects.requireNonNull(Music.class.getResource("/audio/Tragedy.mp3")).toExternalForm());
 
     static boolean hasVolume;
 
@@ -43,6 +43,7 @@ public class Music {
 
     public static void gameOverMusic(MusicFlag musicFlag){
         if(musicFlag == MusicFlag.ON) {
+
             gameOverMusic.setVolume(0.2);
             gameOverMusic.setCycleCount(AudioClip.INDEFINITE);
             gameOverMusic.play();
@@ -55,8 +56,8 @@ public class Music {
     }
 
     public static void eatBombSound() {
-        gameOverMusic.setVolume(0.15);
-        gameOverMusic.play();
+        gameOverThunder.setVolume(0.15);
+        gameOverThunder.play();
     }
 
     public static void toggleGameOverMusic() {
