@@ -1,5 +1,6 @@
 package com.brightstraining.javafxgame;
 
+import com.brightstraining.javafxgame.model.Model;
 import javafx.scene.media.AudioClip;
 
 import java.util.Objects;
@@ -33,6 +34,9 @@ public class Music {
         if(musicFlag == MusicFlag.OFF){
             backGroundMusic.stop();
             hasVolume = false;
+        }
+        if(Model.isGameOver == true){
+            backGroundMusic.stop();
         }
     }
 
