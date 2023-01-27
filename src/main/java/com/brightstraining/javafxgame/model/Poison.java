@@ -7,8 +7,8 @@ public class Poison {
     public static final double WIDTH = 14;
     public static final double HEIGHT = 14;
 
-    private final double x = (Math.random() * (Model.WIDTH-Food.WIDTH*2) + WIDTH*2);
-    private final double y =  (Math.random() * (Model.HEIGHT-HEIGHT*2) + HEIGHT*2);
+    private double x;
+    private double y;
 
     public static Image icon = new Image(Poison.class.getResource("/img/bomb.png").toExternalForm());
 
@@ -18,6 +18,18 @@ public class Poison {
 
     public double getY() {
         return y;
+    }
+
+    public Poison(){
+        generateSpawn();
+    }
+
+    private void generateSpawn(){
+        this.x = Math.random() * (Model.WIDTH-Poison.WIDTH*3) + WIDTH*3;
+        this.y =  Math.random() * (Model.HEIGHT-Poison.HEIGHT*3) + HEIGHT*3;
+        if(Model.getCollision().collidesWithAnything(x,y)){
+            generateSpawn();
+        }
     }
 
 }

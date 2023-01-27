@@ -92,6 +92,7 @@ public boolean isRunning;
         exit2.setOnAction (e ->stage.close ());
         gameOver.getChildren ().add (retry);
         gameOver.getChildren ().add (exit2);
+
         // Create canvas and add to group
         Canvas canvas = new Canvas(Graphics.WIDTH,Graphics.HEIGHT);
         root.getChildren().addAll(canvas);
