@@ -31,7 +31,6 @@ public class Timer extends AnimationTimer {
             model.update((l - timestamp) / 1000);
             timestamp = l;
         }
-
         graphics.draw(model);
     }
 

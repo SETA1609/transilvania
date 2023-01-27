@@ -17,8 +17,7 @@ public class Model {
     private ScoreBoard scoreBoard;
     private MuteButton mutebutton;
     private final Player player;
-    private GameOver gameOver;
-    public MuteButton getMutebutton() {return mutebutton;}
+        public MuteButton getMutebutton() {return mutebutton;}
     private static Collision collision;
     private final Food food;
     public static List<Bomb> bombs = new ArrayList<>();
