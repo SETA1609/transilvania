@@ -9,7 +9,7 @@ public class Music {
 
     static AudioClip backGroundMusic = new AudioClip(Music.class.getResource("/audio/Trancyvania.mp3").toExternalForm());
     static AudioClip eatFood = new AudioClip(Objects.requireNonNull(Music.class.getResource("/audio/gameboy.mp3")).toExternalForm());
-    static AudioClip gameOverDoh = new AudioClip(Objects.requireNonNull(Music.class.getResource("/audio/looserGewitter.mp3")).toExternalForm());
+    static AudioClip gameOverMusic = new AudioClip(Objects.requireNonNull(Music.class.getResource("/audio/looserGewitter.mp3")).toExternalForm());
     static AudioClip gameOverMorning = new AudioClip(Objects.requireNonNull(Music.class.getResource("/audio/Tragedy.mp3")).toExternalForm());
 
     static boolean hasVolume;
@@ -24,10 +24,9 @@ public class Music {
         }
     }
     public static void backGroundMusic(MusicFlag musicFlag){
-
-        backGroundMusic.setVolume(0.2);
-        backGroundMusic.setCycleCount(AudioClip.INDEFINITE);
         if(musicFlag == MusicFlag.ON) {
+            backGroundMusic.setVolume(0.2);
+            backGroundMusic.setCycleCount(AudioClip.INDEFINITE);
             backGroundMusic.play();
             hasVolume = true;
         }
@@ -35,23 +34,38 @@ public class Music {
             backGroundMusic.stop();
             hasVolume = false;
         }
-        if(Model.isGameOver == true){
-            backGroundMusic.stop();
-        }
     }
 
     public static void eatFoodSound(){
-
         eatFood.setVolume(0.2);
         eatFood.play();
     }
 
-    public static void gameOverSound(){
+    public static void gameOverMusic(MusicFlag musicFlag){
+        if(musicFlag == MusicFlag.ON) {
+            gameOverMusic.setVolume(0.2);
+            gameOverMusic.setCycleCount(AudioClip.INDEFINITE);
+            gameOverMusic.play();
+            hasVolume = true;
+        }
+        if(musicFlag == MusicFlag.OFF){
+            gameOverMusic.stop();
+            hasVolume = false;
+        }
+    }
 
-        gameOverDoh.setVolume(0.15);
-        gameOverDoh.play();
+    public static void eatBombSound() {
+        gameOverMusic.setVolume(0.15);
+        gameOverMusic.play();
+    }
 
-        gameOverMorning.setVolume(0.15);
-        gameOverMorning.play();
+    public static void toggleGameOverMusic() {
+        if(hasVolume) {
+            gameOverMusic(MusicFlag.OFF);
+            hasVolume = false;
+        }else {
+            gameOverMusic(MusicFlag.ON);
+            hasVolume = true;
+        }
     }
 }

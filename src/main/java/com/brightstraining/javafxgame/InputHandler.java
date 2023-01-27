@@ -35,7 +35,12 @@ public class InputHandler {
             model.getPlayer().startMovingDown();
         }
         else if(keyCode == KeyCode.M){
-            Music.toggleBackGroundMusic();
+            if(Model.isGameOver){
+                Music.toggleGameOverMusic();
+            }
+            else{
+                Music.toggleBackGroundMusic();
+            }
         }
     }
 

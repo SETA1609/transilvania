@@ -4,21 +4,21 @@ import java.util.List;
 
 public class Collision {
     private Player player;
-    private List<Poison> poisons;
+    private List<Bomb> bombs;
     private Food food;
 
     private double radiusToKeepFree = Player.WIDTH*2.5;
 
-    public Collision(Player player, List<Poison> poisons, Food food) {
+    public Collision(Player player, List<Bomb> bombs, Food food) {
         this.player = player;
-        this.poisons = poisons;
+        this.bombs = bombs;
         this.food = food;
     }
 
     public boolean collidesWithAnything(double x,double y) {
         //collision with any poison in a radious playerwitdh*3
-        for(Poison poison:poisons){
-            if(distance(poison.getX(),poison.getY(),x,y) < radiusToKeepFree){
+        for(Bomb bomb : bombs){
+            if(distance(bomb.getX(), bomb.getY(),x,y) < radiusToKeepFree){
                 return true;
             }
         }
@@ -35,8 +35,8 @@ public class Collision {
     }
     public boolean collidesWithAnythingButFood(double x,double y) {
         //collision with any poison in a radious playerwitdh*3
-        for(Poison poison:poisons){
-            if(distance(poison.getX(),poison.getY(),x,y) < radiusToKeepFree){
+        for(Bomb bomb : bombs){
+            if(distance(bomb.getX(), bomb.getY(),x,y) < radiusToKeepFree){
                 return true;
             }
         }
@@ -55,8 +55,8 @@ public class Collision {
 
     public  boolean playerCollidesWithPoison(){
         //Colliding when distance between center less than sum of both radius
-        for(Poison poison:poisons){
-            if(distance(poison.getX(),poison.getY(),player.getX(),player.getY()) < poison.WIDTH/2 + Player.WIDTH/2){
+        for(Bomb bomb : bombs){
+            if(distance(bomb.getX(), bomb.getY(),player.getX(),player.getY()) < bomb.WIDTH/2 + Player.WIDTH/2){
                 return true;
             }
         }

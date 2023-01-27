@@ -20,7 +20,7 @@ public class Model {
     public MuteButton getMutebutton() {return mutebutton;}
     private static Collision collision;
     private final Food food;
-    public static List<Poison> poisons = new ArrayList<>();
+    public static List<Bomb> bombs = new ArrayList<>();
 
     public Model() {
         this.player = new Player();
@@ -45,7 +45,7 @@ public class Model {
     }
 
     public void update(long milliseconds) {
-        collision = new Collision(player,poisons,food);
+        collision = new Collision(player, bombs,food);
         player.update(milliseconds);
 
 
@@ -53,11 +53,12 @@ public class Model {
             eatFoodSound();
             food.update();
             scoreBoard.update ();
-            poisons.add(new Poison());
+            bombs.add(new Bomb());
         }
         if(ScoreBoard.score >0 && collision.playerCollidesWithPoison()){
             backGroundMusic(MusicFlag.OFF);
-            gameOverSound();
+            eatBombSound();
+            gameOverMusic(MusicFlag.ON);
             player.stopMovingDown();
             player.stopMovingLeft();
             player.stopMovingRight();
@@ -67,8 +68,8 @@ public class Model {
         }
     }
 
-    public List<Poison> getPoisons() {
-        return poisons;
+    public List<Bomb> getPoisons() {
+        return bombs;
     }
 
 }

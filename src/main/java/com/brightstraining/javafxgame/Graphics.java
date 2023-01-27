@@ -65,11 +65,11 @@ public class Graphics {
         //drawFoodHitbox(context, food);
 
         //draw poisons
-        List<Poison> poisons = model.getPoisons();
+        List<Bomb> bombs = model.getPoisons();
         context.setFill(Color.BLACK);
         if (ScoreBoard.score > 0) {
-            for (Poison poison : poisons) {
-                context.drawImage(Poison.icon, poison.getX() - Poison.WIDTH * SCALING / 2,poison.getY() - Poison.HEIGHT * SCALING / 2);
+            for (Bomb bomb : bombs) {
+                context.drawImage(Bomb.icon, bomb.getX() - Bomb.WIDTH * SCALING / 2, bomb.getY() - Bomb.HEIGHT * SCALING / 2);
                 //actual hitbos for testing
                 //drawPoisonHitbox(context, poison);
             }
@@ -93,12 +93,12 @@ public class Graphics {
         );
     }
 
-    private static void drawPoisonHitbox(GraphicsContext context, Poison poison) {
+    private static void drawPoisonHitbox(GraphicsContext context, Bomb bomb) {
         context.fillOval(
-                poison.getX() - Poison.WIDTH * SCALING / 2,
-                poison.getY() - Poison.HEIGHT * SCALING / 2,
-                Poison.WIDTH,
-                Poison.HEIGHT
+                bomb.getX() - Bomb.WIDTH * SCALING / 2,
+                bomb.getY() - Bomb.HEIGHT * SCALING / 2,
+                Bomb.WIDTH,
+                Bomb.HEIGHT
         );
     }
 
