@@ -47,6 +47,16 @@ public class Graphics {
         context.setFont(Font.font(25)); // Font und Große
         context.strokeText(scoreBoard.toString(), 20, 20); // Wo wird gestellt und String
 
+        //draw MuteButton
+        if (Music.hasVolume){
+        MuteButton muteButton = model.getMutebutton();
+        context.setFill(Color.BLACK);
+        context.drawImage(MuteButton.icon, Model.WIDTH-50,10);
+        }else {
+            MuteButton muteButton2 = model.getMutebutton();
+        context.setFill(Color.BLACK);
+        context.drawImage(MuteButton.icon2, Model.WIDTH-50,10);}
+
         //draw food
         Food food = model.getFood();
         context.setFill(Color.RED);
