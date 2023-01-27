@@ -3,21 +3,17 @@ package com.brightstraining.javafxgame;
 import com.brightstraining.javafxgame.model.*;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.image.Image;
 
-import javafx.scene.image.ImageView;
-import javafx.scene.media.AudioClip;
 
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 
-import java.io.FileInputStream;
-import java.io.InputStream;
+
 import java.util.List;
 
 public class Graphics {
 
-    private Canvas canvas;
+    private final Canvas canvas;
 
     // Model-coordinates are the same as screen coordinates.
     // For games with less granular coordinates (chess, game of life)
@@ -53,19 +49,55 @@ public class Graphics {
 
         //draw food
         Food food = model.getFood();
-        context.drawImage(Food.icon, food.getX(), food.getY());
+        context.setFill(Color.RED);
+        context.drawImage(Food.icon, food.getX() - Food.WIDTH * SCALING / 2, food.getY() - Food.HEIGHT * SCALING / 2);
+        //actual hitbox for testing
+        //drawFoodHitbox(context, food);
 
         //draw poisons
         List<Poison> poisons = model.getPoisons();
         context.setFill(Color.BLACK);
         if (ScoreBoard.score > 0) {
             for (Poison poison : poisons) {
-                context.drawImage(Poison.icon, poison.getX(), poison.getY());
+                context.drawImage(Poison.icon, poison.getX() - Poison.WIDTH * SCALING / 2,poison.getY() - Poison.HEIGHT * SCALING / 2);
+                //actual hitbos for testing
+                //drawPoisonHitbox(context, poison);
             }
         }
 
         // draw player
         Player player = model.getPlayer();
-        context.drawImage(Player.icon, player.getX(), player.getY());
+        context.drawImage(Player.icon, player.getX() - Player.WIDTH * SCALING / 2, player.getY() - Player.HEIGHT * SCALING / 2);
+        context.setFill(Color.VIOLET);
+        //Actual hitbox for testing
+        //drawPlayerHitbox(context, player);
+
+    }
+
+    private static void drawFoodHitbox(GraphicsContext context, Food food) {
+        context.fillOval(
+                food.getX() - Food.WIDTH * SCALING / 2,
+                food.getY() - Food.HEIGHT * SCALING / 2,
+                Food.WIDTH,
+                Food.HEIGHT
+        );
+    }
+
+    private static void drawPoisonHitbox(GraphicsContext context, Poison poison) {
+        context.fillOval(
+                poison.getX() - Poison.WIDTH * SCALING / 2,
+                poison.getY() - Poison.HEIGHT * SCALING / 2,
+                Poison.WIDTH,
+                Poison.HEIGHT
+        );
+    }
+
+    private static void drawPlayerHitbox(GraphicsContext context, Player player) {
+        context.fillOval(
+                player.getX() - Player.WIDTH * SCALING / 2,
+                player.getY() - Player.HEIGHT * SCALING / 2,
+                Player.WIDTH,
+                Player.HEIGHT
+        );
     }
 }
