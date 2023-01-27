@@ -83,12 +83,13 @@ public class Graphics {
 
         // draw Game over
 
-        Collision collision= new Collision (player, poisons,food);
-        if (collision.playerCollidesWithPoison ()){
-            GameOver gameOver= new GameOver ();
+
+        if (Model.isGameOver){
             context.setFill(Color.RED); //color
             context.setFont(Font.font(25)); // Font und Große
-            context.strokeText(gameOver.toString(), Model.WIDTH/2-50, Model.HEIGHT/2-50); // Wo wird gestellt und String
+            context.strokeText("Game Over\n"+
+                    "Where did you\n"+
+                    "Learn to fly?", Model.WIDTH/2-50, Model.HEIGHT/2-50); // Wo wird gestellt und String
         }
     }
     //drawPlayerHitbox(context, player);
