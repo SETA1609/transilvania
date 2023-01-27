@@ -23,8 +23,11 @@ public class Model {
 
 
     private ScoreBoard scoreBoard;
+    private MuteButton mutebutton;
 
     private final Player player;
+
+    public MuteButton getMutebutton() {return mutebutton;}
 
     private final Food food;
     public static List<Poison> poisons = new ArrayList<>();
