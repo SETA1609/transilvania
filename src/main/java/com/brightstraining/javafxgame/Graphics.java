@@ -72,18 +72,18 @@ public class Graphics {
             for (Bomb bomb : bombs) {
                 context.drawImage(Bomb.icon, bomb.getX() - Bomb.WIDTH * SCALING / 2, bomb.getY() - Bomb.HEIGHT * SCALING / 2);
                 //actual hitbos for testing
-                //drawPoisonHitbox(context, poison);
+                //drawPoisonHitbox(context, bomb);
             }
         }
+
         // draw player
         Player player = model.getPlayer();
         context.drawImage(Player.icon, player.getX() - Player.WIDTH * SCALING / 2, player.getY() - Player.HEIGHT * SCALING / 2);
         context.setFill(Color.VIOLET);
         //Actual hitbox for testing
+        //drawPlayerHitbox(context,player);
 
         // draw Game over
-
-
         if (Model.isGameOver){
             context.setFill(Color.RED); //color
             context.setFont(Font.font(25)); // Font und Große
@@ -91,7 +91,7 @@ public class Graphics {
                     "Git Gud\n", Model.WIDTH/2-50, Model.HEIGHT/2-50); // Wo wird gestellt und String
         }
     }
-    //drawPlayerHitbox(context, player);
+
     private static void drawFoodHitbox(GraphicsContext context, Food food) {
         context.fillOval(
                 food.getX() - Food.WIDTH * SCALING / 2,
