@@ -25,8 +25,8 @@ public class Poison {
     }
 
     private void generateSpawn(){
-        this.x = Math.random() * (Model.WIDTH-Poison.WIDTH*3) + WIDTH*3;
-        this.y =  Math.random() * (Model.HEIGHT-Poison.HEIGHT*3) + HEIGHT*3;
+        this.x = Math.random() * (Model.WIDTH-Poison.WIDTH*3) + WIDTH*1;
+        this.y =  Math.random() * (Model.HEIGHT-Poison.HEIGHT*3) + HEIGHT*1;
         if(Model.getCollision().collidesWithAnything(x,y)){
             generateSpawn();
         }
