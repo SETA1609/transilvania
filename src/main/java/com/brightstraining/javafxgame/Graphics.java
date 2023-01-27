@@ -9,6 +9,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Graphics {
@@ -74,16 +75,23 @@ public class Graphics {
                 //drawPoisonHitbox(context, poison);
             }
         }
-
         // draw player
         Player player = model.getPlayer();
         context.drawImage(Player.icon, player.getX() - Player.WIDTH * SCALING / 2, player.getY() - Player.HEIGHT * SCALING / 2);
         context.setFill(Color.VIOLET);
         //Actual hitbox for testing
-        //drawPlayerHitbox(context, player);
 
+        // draw Game over
+
+        Collision collision= new Collision (player, poisons,food);
+        if (collision.playerCollidesWithPoison ()){
+            GameOver gameOver= new GameOver ();
+            context.setFill(Color.RED); //color
+            context.setFont(Font.font(25)); // Font und Große
+            context.strokeText(gameOver.toString(), Model.WIDTH/2-50, Model.HEIGHT/2-50); // Wo wird gestellt und String
+        }
     }
-
+    //drawPlayerHitbox(context, player);
     private static void drawFoodHitbox(GraphicsContext context, Food food) {
         context.fillOval(
                 food.getX() - Food.WIDTH * SCALING / 2,
