@@ -91,7 +91,7 @@ public class Player {
         }
         //Left
         if(speedX < 0.0){
-            if(Timer.getTimestamp()/1000/1000/1000 % 2 == 0 ) {
+            if(Timer.getTimestamp()/1000/1000/500 % 2 == 0 ) {
                 icon = new Image(Player.class.getResource(PAC_IMAGES[4]).toExternalForm());
             }else {
                 icon = new Image(Player.class.getResource(PAC_IMAGES[5]).toExternalForm());
@@ -99,7 +99,7 @@ public class Player {
         }
         //Right
         if(speedX > 0) {
-            if (Timer.getTimestamp() / 1000 / 1000 / 1000 % 2 == 0) {
+            if (Timer.getTimestamp() / 1000 / 1000 / 500 % 2 == 0) {
                 icon = new Image(Player.class.getResource(PAC_IMAGES[0]).toExternalForm());
             } else {
                 icon = new Image(Player.class.getResource(PAC_IMAGES[1]).toExternalForm());
@@ -107,7 +107,7 @@ public class Player {
         }
         //Up
         if(speedY < 0) {
-            if (Timer.getTimestamp() / 1000 / 1000 / 1000 % 2 == 0) {
+            if (Timer.getTimestamp() / 1000 / 1000 / 500 % 2 == 0) {
                 icon = new Image(Player.class.getResource(PAC_IMAGES[6]).toExternalForm());
             } else {
                 icon = new Image(Player.class.getResource(PAC_IMAGES[7]).toExternalForm());
@@ -115,7 +115,7 @@ public class Player {
         }
         //Down
         if(speedY > 0) {
-            if (Timer.getTimestamp() / 1000 / 1000 / 1000 % 2 == 0) {
+            if (Timer.getTimestamp() / 1000 / 1000 / 500 % 2 == 0) {
                 icon = new Image(Player.class.getResource(PAC_IMAGES[2]).toExternalForm());
             } else {
                 icon = new Image(Player.class.getResource(PAC_IMAGES[3]).toExternalForm());
